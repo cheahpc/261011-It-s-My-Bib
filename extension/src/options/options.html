@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>It's My Bib — Control Panel</title>
+<style>
+  body { font-family: Segoe UI, Arial, sans-serif; max-width: 640px; margin: 24px auto; padding: 0 16px; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; font-size: 12px; }
+  button { padding: 8px 12px; margin: 4px 0; }
+</style>
+</head>
+<body>
+<h1>It's My Bib — Control Panel</h1>
+<p>Local-first backup for your own MyBib data. No account, no server, no telemetry. Backups are plain JSON files you can keep in a OneDrive-synced folder.</p>
+<h2>Backup history (this browser only)</h2>
+<table><thead><tr><th>When</th><th>Scope</th><th>File</th><th>Project</th></tr></thead><tbody id="rows"></tbody></table>
+<p><button id="clear">Clear history</button></p>
+<h2>Privacy</h2>
+<p>Reads only <code>IndexedDB mybib.general.appState</code> on <code>mybib.com</code>. Never reads cookies, tokens, or passwords. Never uploads anything.</p>
+<script src="options.js"></script>
+</body>
+</html>

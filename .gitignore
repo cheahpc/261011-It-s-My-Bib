@@ -1,0 +1,17 @@
+# Local / scratch (never commit)
+release/
+.playwright-mcp/
+*-pkg-stage/
+tmp-*.svg
+test*.png
+
+# Maintainer screenshot tooling
+docs/shots/node_modules/
+docs/shots/package-lock.json
+
+# OS / editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+*.swp

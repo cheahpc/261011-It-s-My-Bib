@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>It's My Bib</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --card: #ffffff; --ink: #1a1d21; --muted: #5f6368;
+    --line: #e3e6ea; --accent: #1a73e8; --accent-dark: #1558b0;
+    --good-bg: #e6f4ea; --good-ink: #137333; --bad-bg: #fce8e6; --bad-ink: #a50e0e;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Roboto, Arial, sans-serif; width: 360px; margin: 0; padding: 14px; font-size: 13px; background: var(--bg); color: var(--ink); }
+  .head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .logo { width: 36px; height: 36px; border-radius: 10px; overflow: hidden; flex: none; }
+  .logo img { display: block; }
+  .head h1 { font-size: 15px; margin: 0; }
+  .head small { color: var(--muted); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .status { display: flex; gap: 8px; align-items: flex-start; font-size: 12.5px; }
+  .status .dot { width: 10px; height: 10px; border-radius: 50%; background: #9aa0a6; margin-top: 3px; flex: none; }
+  .status.good .dot { background: var(--good-ink); }
+  .status.good { background: var(--good-bg); color: var(--good-ink); }
+  .status.bad .dot { background: var(--bad-ink); }
+  .status.bad { background: var(--bad-bg); color: var(--bad-ink); }
+  .btn { display: flex; align-items: center; gap: 12px; width: 100%; margin: 0 0 8px; padding: 12px; font-size: 14px; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: var(--radius); cursor: pointer; text-align: left; }
+  .btn:hover { background: var(--accent-dark); }
+  .btn:disabled { opacity: .55; cursor: default; }
+  .btn.secondary { background: #fff; color: var(--accent); border: 1.5px solid var(--accent); }
+  .btn.secondary:hover { background: #e8f0fe; }
+  .btn svg { width: 24px; height: 24px; fill: currentColor; flex: none; }
+  .btn small { display: block; font-weight: 400; font-size: 11.5px; opacity: .85; }
+  .hint { color: var(--muted); font-size: 11.5px; margin: 2px 2px 0; }
+  #log { white-space: pre-wrap; font-size: 11.5px; color: var(--muted); max-height: 90px; overflow: auto; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="head">
+  <div class="logo"><img src="../../icons/icon48.png" alt="" width="36" height="36"></div>
+  <div><h1>It's My Bib</h1><small>Local backup &amp; restore — nothing leaves this PC</small></div>
+</div>
+<div id="status" class="card status"><span class="dot"></span><span>Checking MyBib tab…</span></div>
+<button id="btnExport" class="btn">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="m480-240 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160ZM200-640v440h560v-440H200Zm0 520q-33 0-56.5-23.5T120-200v-499q0-14 4.5-27t13.5-24l50-61q11-14 27.5-21.5T250-840h460q18 0 34.5 7.5T772-811l50 61q9 11 13.5 24t4.5 27v499q0 33-23.5 56.5T760-120H200Zm16-600h528l-34-40H250l-34 40Zm264 300Z"/></svg>
+  <span>Export<small>All projects, one file — you pick the folder</small></span>
+</button>
+<button id="btnImport" class="btn secondary">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+  <span>Import<small>Restore a backup file on this PC</small></span>
+</button>
+<p class="hint">Export opens a Save dialog — choose your OneDrive folder to sync between computers.</p>
+<p class="hint">Independent community tool. Not affiliated with or endorsed by MyBib.</p>
+<div id="log"></div>
+<script src="popup.js"></script>
+</body>
+</html>
